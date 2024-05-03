@@ -19,11 +19,11 @@ public class PatientsMvcApplication {
     @Bean
     CommandLineRunner commandLineRunner(PatientRepository patientRepository){
         return args -> {
-            patientRepository.save(new Patient(null,"Hassan",new Date(),false,50));
-            patientRepository.save(new Patient(null,"Mohamed",new Date(),true,50));
-            patientRepository.save(new Patient(null,"Anas",new Date(),false,50));
-            patientRepository.save(new Patient(null,"Mohamed",new Date(),true,50));
-            patientRepository.save(new Patient(null,"Anas",new Date(),false,50));
+            //patientRepository.save(new Patient(null,"Hassan",new Date(),false,50));
+            //patientRepository.save(new Patient(null,"Mohamed",new Date(),true,50));
+            //patientRepository.save(new Patient(null,"Anas",new Date(),false,50));
+            //patientRepository.save(new Patient(null,"Mohamed",new Date(),true,50));
+            //patientRepository.save(new Patient(null,"Anas",new Date(),false,50));
 
             patientRepository.findAll().forEach(patient -> {
                 System.out.println(patient.getNom());
