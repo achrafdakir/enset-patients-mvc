@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -43,8 +44,20 @@ public class PatientController {
     }
 
     @GetMapping("/patients")
-    @ResponseBody
+    @ResponseBody //serialiser le resultat convertir au json
     public List<Patient> listPatients(){
         return patientRepository.findAll();
+    }
+
+    @GetMapping("/formPatients")
+    public String formPatients(Model model){
+        model.addAttribute("patient", new Patient());
+        return "formPatients";
+    }
+
+    @PostMapping(path = "/save")
+    public String save(Model model, Patient patient){
+        patientRepository.save(patient);
+        return "formPatients";
     }
 }

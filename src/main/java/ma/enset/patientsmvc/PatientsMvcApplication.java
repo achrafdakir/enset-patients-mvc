@@ -28,6 +28,7 @@ public class PatientsMvcApplication {
             patientRepository.findAll().forEach(patient -> {
                 System.out.println(patient.getNom());
             });
+            System.out.println("hhh");
         };
     }
 }
